@@ -58,6 +58,7 @@ local options = {
     documentation = {
       border = border "CmpDocBorder",
       winhighlight = "Normal:CmpDoc",
+      side_padding = true,
     },
   },
   snippet = {
