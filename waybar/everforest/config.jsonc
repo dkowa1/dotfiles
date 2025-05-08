@@ -17,7 +17,8 @@
         "memory",
         "backlight",
         "battery",
-        "clock"
+        "clock",
+        "custom/power"
     ],
     // Modules configuration
     "cava": {
@@ -37,12 +38,7 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "1": " ",  // Terminal
-            "2": " ",  // Browser
-            "3": " ",  // Discord
-            "4": "󰓇 ",  // Spotify
-            "5": " ",  // Miscellaneous
-            "urgent": "",
+            "active": "",
             "default": "○"
         },
         "persistent-workspaces": {
