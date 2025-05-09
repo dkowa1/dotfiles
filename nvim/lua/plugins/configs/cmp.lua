@@ -18,14 +18,25 @@ local formatting_style = {
     local icons = require "nvchad.icons.lspkind"
     local icon = (cmp_ui.icons and icons[item.kind]) or ""
 
+    local function trim(text)
+      local max = 40
+      if text and text.len() > max then
+        text = text:sub(1, max) .. "..."
+      end
+      return text
+    end
+
     if cmp_style == "atom" or cmp_style == "atom_colored" then
       icon = " " .. icon .. " "
       item.menu = cmp_ui.lspkind_text and "   (" .. item.kind .. ")" or ""
       item.kind = icon
     else
+      item.menu = " "
       icon = cmp_ui.lspkind_text and (" " .. icon .. " ") or icon
       item.kind = string.format("%s %s", icon, cmp_ui.lspkind_text and item.kind or "")
     end
+
+    --item.abbr = trim(item.abbr)
 
     return item
   end,
@@ -58,7 +69,6 @@ local options = {
     documentation = {
       border = border "CmpDocBorder",
       winhighlight = "Normal:CmpDoc",
-      side_padding = true,
     },
   },
   snippet = {
